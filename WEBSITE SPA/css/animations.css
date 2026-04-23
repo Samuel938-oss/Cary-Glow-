@@ -1,0 +1,209 @@
+/* ─── Scrolling ticker / marquee strip ─────────────────────────────────────── */
+
+.ticker-wrap {
+  overflow: hidden;
+  background: #0D0C0A;
+  border-top: 1px solid rgba(201,169,107,0.2);
+  border-bottom: 1px solid rgba(201,169,107,0.2);
+  padding: 13px 0;
+  user-select: none;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: ticker-scroll 60s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  color: rgba(201,169,107,0.45);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 2.5rem;
+}
+
+.ticker-dot {
+  color: rgba(201,169,107,0.2);
+  font-size: 0.45rem;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+/* ─── Scroll-triggered animations ─────────────────────────────────────────── */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Honour reduced-motion preference ─ show everything immediately, no motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-on-scroll.is-visible {
+    transition: none !important;
+  }
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── Luxury card & glow system ─────────────────────────────────────────────
+   Warm champagne gold glow — elegant, not neon.
+   Use .luxury-card for cards/panels, .glow-border for interactive containers.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.luxury-card {
+  border-radius: 10px;
+  border: 1px solid rgba(201,169,107,0.14);
+  background: #191714;
+  box-shadow:
+    inset 0 1px 0 rgba(201,169,107,0.06),
+    0 4px 20px rgba(0,0,0,0.32);
+  transition:
+    border-color 380ms ease,
+    box-shadow   380ms ease,
+    transform    380ms ease;
+}
+
+.luxury-card:hover {
+  border-color: rgba(201,169,107,0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(201,169,107,0.1),
+    0 0 0 1px rgba(201,169,107,0.05),
+    0 8px 32px rgba(201,169,107,0.1),
+    0 24px 60px rgba(0,0,0,0.42);
+  transform: translateY(-3px);
+}
+
+/* Subtle glow reveal when element scrolls into view */
+.luxury-card.is-visible {
+  box-shadow:
+    inset 0 1px 0 rgba(201,169,107,0.08),
+    0 0 0 1px rgba(201,169,107,0.04),
+    0 6px 24px rgba(0,0,0,0.36);
+}
+
+/* Interactive container (forms, major panels) */
+.glow-border {
+  border-radius: 12px;
+  border: 1px solid rgba(201,169,107,0.16);
+  background: #111008;
+  box-shadow:
+    inset 0 1px 0 rgba(201,169,107,0.06),
+    0 6px 28px rgba(0,0,0,0.38);
+  transition:
+    border-color 380ms ease,
+    box-shadow   380ms ease;
+}
+
+.glow-border:hover,
+.glow-border:focus-within {
+  border-color: rgba(201,169,107,0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(201,169,107,0.1),
+    0 0 0 1px rgba(201,169,107,0.06),
+    0 10px 40px rgba(201,169,107,0.09),
+    0 24px 64px rgba(0,0,0,0.52);
+}
+
+/* Thin gold section separator */
+.section-sep {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent          0%,
+    rgba(201,169,107,0.15) 25%,
+    rgba(201,169,107,0.28) 50%,
+    rgba(201,169,107,0.15) 75%,
+    transparent          100%
+  );
+  margin: 0;
+}
+
+/* Elevated dark surface for nested content (sub-cards inside service rows) */
+.surface-elevated {
+  background: #1C1B18;
+  border: 1px solid rgba(201,169,107,0.1);
+  border-radius: 8px;
+}
+
+/* ── Luxury rotating conic-gradient border ──────────────────────────────────
+   Mimics the thin, slowly-spinning border on premium dark-mode UIs.
+   The hot spot (bright) rotates around the perimeter over 16 s — elegant,
+   never distracting. Works on any border-radius.
+
+   Usage: add  luxury-glow-border  to any element that already has a
+   border-radius. Can be stacked on top of .glow-border.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Register --lgb-angle so the browser can interpolate it as a real angle */
+@property --lgb-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes lgb-rotate {
+  to { --lgb-angle: 360deg; }
+}
+
+.luxury-glow-border {
+  --lgb-angle: 0deg;
+  border: 2px solid transparent !important;
+  background:
+    linear-gradient(#111008, #111008) padding-box,
+    conic-gradient(
+      from var(--lgb-angle),
+      transparent            0%,
+      transparent            15%,
+      rgba(201,169,107,0.25) 30%,
+      rgba(201,169,107,0.45) 42%,
+      rgba(201,169,107,0.25) 54%,
+      transparent            68%,
+      transparent            100%
+    ) border-box;
+  animation: lgb-rotate 14s linear infinite;
+  box-shadow:
+    0 0 60px rgba(201,169,107,0.08),
+    0 8px 36px rgba(0,0,0,0.45);
+}
+
+.luxury-glow-border::before { content: none; }
+
+/* Honour reduced-motion: freeze the border, keep the glow ring visible */
+@media (prefers-reduced-motion: reduce) {
+  .luxury-glow-border {
+    animation: none;
+    border-color: rgba(201,169,107,0.35) !important;
+    background: #111008 !important;
+  }
+}

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cary Glow Med Spa | Cary, NC</title>
+  <meta name="description" content="Discover medical-grade aesthetic treatments in Cary, NC. Botox, dermal fillers, HydraFacial & more. Book your free consultation with Dr. Sofia Reyes, MD.">
+  <meta name="theme-color" content="#C9A96B">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { DEFAULT: '#C9A96B', light: '#D9BC88', dark: '#A88A4A', 50: '#1C1A13', 100: '#252115' },
+            cream: { DEFAULT: '#191714', dark: '#2A2825', darker: '#0D0C0A' },
+            ink: '#EDE9E1',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #EDE9E1; }
+    h1, h2, h3, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #C9A96B; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+    .logo-mark { font-family: 'Playfair Display', Georgia, serif; color: #C9A96B; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+    .logo-line { display: block; height: 1px; background: #C9A96B; margin-top: 3px; width: 100%; }
+
+    .btn-primary { background: #C9A96B; color: #0D0C0A; padding: 1rem 2rem; border-radius: 2px; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; transition: background 200ms ease, transform 150ms ease, box-shadow 200ms ease; display: inline-block; text-decoration: none; cursor: pointer; box-shadow: 0 4px 14px rgba(201,169,107,0.35); }
+    .btn-primary:hover { background: #A88A4A; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,169,107,0.45); }
+
+    .btn-outline { border: 2px solid #C9A96B; color: #C9A96B; background: transparent; padding: 0.9375rem 1.75rem; border-radius: 2px; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; transition: all 200ms ease; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; cursor: pointer; }
+    .btn-outline:hover { background: #C9A96B; color: #0D0C0A; }
+
+    .btn-ghost-white { border: 2px solid rgba(255,255,255,0.65); color: white; background: transparent; padding: 0.9375rem 1.75rem; border-radius: 2px; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; transition: all 200ms ease; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; cursor: pointer; }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.12); border-color: white; }
+
+    .btn-white { background: #C9A96B; color: #0D0C0A; padding: 0.875rem 2.25rem; border-radius: 2px; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: all 200ms ease; display: inline-block; text-decoration: none; }
+    .btn-white:hover { background: #D9BC88; transform: translateY(-1px); }
+
+    .section-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A96B; margin-bottom: 0.75rem; }
+    .teal-divider { width: 44px; height: 1px; background: #C9A96B; margin-bottom: 1.5rem; }
+
+    .nav-link { color: #EDE9E1; font-size: 0.875rem; font-weight: 400; text-decoration: none; position: relative; padding-bottom: 2px; transition: color 150ms ease; }
+    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: #C9A96B; transition: width 200ms ease; }
+    .nav-link:hover { color: #C9A96B; }
+    .nav-link:hover::after { width: 100%; }
+
+    .service-card { background: #191714; border: 1px solid rgba(201,169,107,0.13); transition: box-shadow 380ms ease, transform 380ms ease, border-color 380ms ease; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; box-shadow: inset 0 1px 0 rgba(201,169,107,0.05), 0 4px 20px rgba(0,0,0,0.3); }
+    .service-card:hover { box-shadow: inset 0 1px 0 rgba(201,169,107,0.1), 0 0 0 1px rgba(201,169,107,0.05), 0 10px 36px rgba(201,169,107,0.12), 0 24px 60px rgba(0,0,0,0.44); transform: translateY(-5px); border-color: rgba(201,169,107,0.4); }
+    .service-card .card-img { transition: transform 700ms ease; }
+    .service-card:hover .card-img { transform: scale(1.06); }
+    .service-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+
+    .stat-badge { background: rgba(28,27,24,0.92); backdrop-filter: blur(12px); border: 1px solid rgba(201,169,107,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.55), inset 0 1px 0 rgba(201,169,107,0.08); border-radius: 10px; padding: 0.875rem 1.125rem; }
+
+    .step-num { font-family: 'Playfair Display', Georgia, serif; font-size: 3.5rem; font-weight: 700; color: #C9A96B; opacity: 0.22; line-height: 1; margin-bottom: 0.5rem; }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    #mobileMenu { display: none; }
+    #mobileMenu.open { display: block; }
+
+    .nav-scrolled { box-shadow: 0 1px 16px rgba(0,0,0,0.45); }
+
+    /* ── dark mode overrides ── */
+    body { background-color: #0D0C0A !important; }
+    #navbar { background: rgba(13,12,10,0.97) !important; border-color: #2A2825 !important; }
+    .bg-white { background-color: #191714 !important; }
+    .bg-cream { background-color: #141210 !important; }
+    section.bg-teal { background: linear-gradient(135deg, #1C1A13 0%, #0D0C0A 100%) !important; }
+    .bg-ink { background-color: #080806 !important; }
+    .bg-teal-50 { background-color: #1C1A13 !important; }
+    .bg-teal-100 { background-color: #252115 !important; }
+    .border-cream-dark { border-color: #2A2825 !important; }
+    .text-gray-400, .text-gray-500 { color: #9A9690 !important; }
+    .text-gray-600 { color: #A8A49E !important; }
+    .text-gray-700, .text-gray-800, .text-gray-900 { color: #C5C1B9 !important; }
+    .text-ink { color: #EDE9E1 !important; }
+    .divide-cream-dark > * + * { border-color: #2A2825 !important; }
+  </style>
+</head>
+<body class="bg-white">
+
+<!-- NAV -->
+<nav id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cream-dark transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <a href="index.html" class="flex-shrink-0">
+        <div class="logo-mark">Cary Glow</div>
+        <div class="logo-line"></div>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn-primary ml-4">Book Free Consult</a>
+      </div>
+      <button id="menuBtn" class="md:hidden p-2 text-ink hover:text-teal transition-colors" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="border-t border-cream-dark bg-white">
+    <div class="px-5 py-4 flex flex-col gap-1">
+      <a href="index.html" class="py-3 text-sm text-teal border-b border-cream-dark font-medium">Home</a>
+      <a href="services.html" class="py-3 text-sm text-ink border-b border-cream-dark hover:text-teal transition-colors">Services</a>
+      <a href="about.html" class="py-3 text-sm text-ink border-b border-cream-dark hover:text-teal transition-colors">About</a>
+      <a href="faq.html" class="py-3 text-sm text-ink border-b border-cream-dark hover:text-teal transition-colors">FAQ</a>
+      <a href="contact.html" class="py-3 text-sm text-ink hover:text-teal transition-colors">Contact</a>
+      <a href="contact.html" class="btn-primary mt-4 text-center">Book Free Consult</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
+  <!-- Spa exterior background -->
+  <img
+    src="Cary_Glow_Spa_202604191544.jpeg"
+    alt="Cary Glow Med Spa exterior — Cary, NC"
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  >
+  <!-- Dark gradient: denser left for text readability, fades right to reveal building -->
+  <div class="absolute inset-0" style="background: linear-gradient(110deg, rgba(18,18,16,0.90) 0%, rgba(18,18,16,0.74) 42%, rgba(18,18,16,0.32) 100%);"></div>
+  <!-- Subtle teal brand accent at bottom edge -->
+  <div class="absolute bottom-0 left-0 right-0 h-28" style="background: linear-gradient(to top, rgba(201,169,107,0.18) 0%, transparent 100%);"></div>
+
+  <!-- Text content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full py-24">
+    <div class="max-w-2xl">
+      <p class="section-tag" style="color: rgba(255,255,255,0.6);">Cary, NC's Premier Med Spa</p>
+      <div class="teal-divider"></div>
+      <h1 class="font-serif text-5xl sm:text-6xl lg:text-[4.5rem] text-white leading-[1.06] tracking-tight mb-6">
+        Reveal the glow<br>you <em>deserve.</em>
+      </h1>
+      <p class="text-lg leading-relaxed max-w-xl mb-8" style="color: rgba(255,255,255,0.72);">
+        Medical-grade aesthetic treatments delivered with warmth and expertise by Dr. Sofia Reyes. Real results. Zero pressure.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 mb-12">
+        <a href="contact.html" class="btn-primary">Book Free Consultation</a>
+        <a href="services.html" class="btn-ghost-white">
+          Explore Services
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-6">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(201,169,107,0.28);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="text-sm font-medium" style="color: rgba(255,255,255,0.82);">Board-Certified MD</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(201,169,107,0.28);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="text-sm font-medium" style="color: rgba(255,255,255,0.82);">8+ Years Experience</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(201,169,107,0.28);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="text-sm font-medium" style="color: rgba(255,255,255,0.82);">Zero Downtime Options</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating stat badges — bottom-right corner -->
+  <div class="absolute bottom-8 right-8 lg:right-14 z-20 hidden lg:flex flex-col gap-3">
+    <div class="stat-badge">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-teal flex items-center justify-center flex-shrink-0">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-ink leading-none">Free Consult</p>
+          <p class="text-xs text-gray-400 leading-none mt-0.5">Always available</p>
+        </div>
+      </div>
+    </div>
+    <div class="stat-badge">
+      <div class="flex gap-0.5 mb-1">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+      </div>
+      <p class="text-xs font-semibold text-ink">200+ Happy Clients</p>
+      <p class="text-xs text-gray-400">Cary, NC</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- CREDIBILITY BAR -->
+<section class="bg-ink py-12">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-4 text-center sm:divide-x divide-white/10">
+      <div class="sm:px-8 animate-on-scroll">
+        <p class="font-serif text-3xl font-semibold text-teal">8+</p>
+        <p class="text-white text-sm font-medium mt-1">Years of Experience</p>
+        <p class="text-gray-400 text-xs mt-0.5">Aesthetic Medicine</p>
+      </div>
+      <div class="sm:px-8 animate-on-scroll">
+        <p class="font-serif text-3xl font-semibold text-teal">200+</p>
+        <p class="text-white text-sm font-medium mt-1">Happy Clients</p>
+        <p class="text-gray-400 text-xs mt-0.5">5-Star Rated</p>
+      </div>
+      <div class="sm:px-8 animate-on-scroll">
+        <p class="font-serif text-3xl font-semibold text-teal">MD</p>
+        <p class="text-white text-sm font-medium mt-1">Board-Certified</p>
+        <p class="text-gray-400 text-xs mt-0.5">Physician-Led Care</p>
+      </div>
+      <div class="sm:px-8 animate-on-scroll">
+        <p class="font-serif text-3xl font-semibold text-teal">$0</p>
+        <p class="text-white text-sm font-medium mt-1">Free Consultation</p>
+        <p class="text-gray-400 text-xs mt-0.5">No obligation, ever</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- SERVICES -->
+<section class="bg-cream py-28 sm:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="text-center mb-16 fade-up">
+      <p class="section-tag">What We Offer</p>
+      <div class="teal-divider mx-auto"></div>
+      <h2 class="font-serif text-4xl sm:text-5xl text-ink tracking-tight leading-tight">Results-driven treatments<br><em>tailored to you</em></h2>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto text-sm leading-relaxed">Every plan is personalized. From subtle enhancements to transformative results — we meet you where you are.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Botox -->
+      <div class="service-card animate-on-scroll">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/2">
+          <img src="service-botox.jpeg" alt="Botox treatment at Cary Glow Med Spa" class="card-img w-full h-full object-cover object-center" loading="lazy" decoding="async">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(201,169,107,0.06) 0%,rgba(245,240,235,0.18) 100%)"></div>
+          <span class="absolute top-3 left-3 bg-teal/15 backdrop-blur-sm border border-teal/30 text-teal text-xs font-semibold px-2.5 py-1 rounded-md">Most Popular</span>
+        </div>
+        <div class="service-card-body">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-teal-50 rounded-md flex items-center justify-center flex-shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3 class="font-serif text-xl text-ink">Botox & Dysport</h3>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Smooth forehead lines, crow's feet, and frown lines. Natural-looking results with zero downtime.</p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-dark">
+            <span class="text-teal text-sm font-semibold">From $150 · $12–14/unit</span>
+            <a href="services.html" class="text-xs text-gray-400 hover:text-teal transition-colors flex items-center gap-1">Details <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lip Filler -->
+      <div class="service-card animate-on-scroll">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/2">
+          <img src="service-lip-filler.jpeg" alt="Lip filler treatment at Cary Glow Med Spa" class="card-img w-full h-full object-cover object-center" loading="lazy" decoding="async">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(201,169,107,0.06) 0%,rgba(245,240,235,0.18) 100%)"></div>
+        </div>
+        <div class="service-card-body">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-teal-50 rounded-md flex items-center justify-center flex-shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="font-serif text-xl text-ink">Lip Filler</h3>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Juvederm-based enhancement for natural volume and definition. Free consultation included. Mild swelling 24–48 hrs.</p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-dark">
+            <span class="text-teal text-sm font-semibold">$450 – $650/syringe</span>
+            <a href="services.html" class="text-xs text-gray-400 hover:text-teal transition-colors flex items-center gap-1">Details <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HydraFacial -->
+      <div class="service-card animate-on-scroll">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/2">
+          <img src="service-hydrafacial.jpeg" alt="HydraFacial treatment at Cary Glow Med Spa" class="card-img w-full h-full object-cover object-center" loading="lazy" decoding="async">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(201,169,107,0.06) 0%,rgba(245,240,235,0.18) 100%)"></div>
+          <span class="absolute top-3 left-3 bg-teal/15 backdrop-blur-sm border border-teal/30 text-teal text-xs font-semibold px-2.5 py-1 rounded-md">Zero Downtime</span>
+        </div>
+        <div class="service-card-body">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-teal-50 rounded-md flex items-center justify-center flex-shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-xl text-ink">HydraFacial</h3>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Deep cleanse, exfoliation & hydration in one. Zero downtime — perfect for first-timers. Monthly recommended.</p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-dark">
+            <span class="text-teal text-sm font-semibold">$175 Classic · $220 Deluxe</span>
+            <a href="services.html" class="text-xs text-gray-400 hover:text-teal transition-colors flex items-center gap-1">Details <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cheek & Facial Filler -->
+      <div class="service-card animate-on-scroll">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/2">
+          <img src="service-cheek-filler.jpeg" alt="Cheek filler treatment at Cary Glow Med Spa" class="card-img w-full h-full object-cover object-center" loading="lazy" decoding="async">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(201,169,107,0.06) 0%,rgba(245,240,235,0.18) 100%)"></div>
+        </div>
+        <div class="service-card-body">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-teal-50 rounded-md flex items-center justify-center flex-shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="font-serif text-xl text-ink">Cheek & Facial Filler</h3>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Restores volume and lifts cheeks for a refreshed, youthful look. Results last 12–18 months.</p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-dark">
+            <span class="text-teal text-sm font-semibold">$600 – $900/syringe</span>
+            <a href="services.html" class="text-xs text-gray-400 hover:text-teal transition-colors flex items-center gap-1">Details <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laser Hair Removal -->
+      <div class="service-card animate-on-scroll">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/2">
+          <img src="service-laser.jpeg" alt="Laser hair removal at Cary Glow Med Spa" class="card-img w-full h-full object-cover object-center" loading="lazy" decoding="async">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(201,169,107,0.06) 0%,rgba(245,240,235,0.18) 100%)"></div>
+        </div>
+        <div class="service-card-body">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-teal-50 rounded-md flex items-center justify-center flex-shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="font-serif text-xl text-ink">Laser Hair Removal</h3>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Permanent reduction for all body areas. 6–8 sessions recommended. Small (upper lip $75) to large (legs $350).</p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-dark">
+            <span class="text-teal text-sm font-semibold">$75 – $350/area</span>
+            <a href="services.html" class="text-xs text-gray-400 hover:text-teal transition-colors flex items-center gap-1">Details <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Microneedling -->
+      <div class="service-card animate-on-scroll">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/2">
+          <img src="service-microneedling.jpeg" alt="Microneedling treatment at Cary Glow Med Spa" class="card-img w-full h-full object-cover object-center" loading="lazy" decoding="async">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(201,169,107,0.06) 0%,rgba(245,240,235,0.18) 100%)"></div>
+          <span class="absolute top-3 left-3 bg-teal/15 backdrop-blur-sm border border-teal/30 text-teal text-xs font-semibold px-2.5 py-1 rounded-md">3 for $750</span>
+        </div>
+        <div class="service-card-body">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 bg-teal-50 rounded-md flex items-center justify-center flex-shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M6.343 6.343a8 8 0 1 0 11.314 0 8 8 0 0 0-11.314 0z"/></svg>
+            </div>
+            <h3 class="font-serif text-xl text-ink">Microneedling</h3>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Stimulates collagen for firmer, smoother skin. 3-session packages available. Mild redness 24–48 hrs post treatment.</p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-dark">
+            <span class="text-teal text-sm font-semibold">$300/session · 3 for $750</span>
+            <a href="services.html" class="text-xs text-gray-400 hover:text-teal transition-colors flex items-center gap-1">Details <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-12 fade-up">
+      <a href="services.html" class="btn-outline">View All Services & Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Cary Glow</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Best Prices</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Best Experience</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Expert Providers</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Natural Results</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Luxury Care</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Free Consultation</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Botox & Fillers</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Cary, NC</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Cary Glow</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Best Prices</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Best Experience</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Expert Providers</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Natural Results</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Luxury Care</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Free Consultation</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Botox & Fillers</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">Cary, NC</span><span class="ticker-dot">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT TEASER -->
+<section class="bg-white py-28 sm:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-up">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-cream rounded-3xl -rotate-2"></div>
+          <div class="relative rounded-2xl overflow-hidden shadow-xl" style="aspect-ratio:3/4">
+            <img
+              src="Female_doctor_in_202604191550.jpeg"
+              alt="Dr. Sofia Reyes, MD — Founder of Cary Glow Med Spa"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(18,18,16,0.5) 0%, transparent 45%);"></div>
+            <div class="absolute bottom-5 right-5 luxury-card px-3 py-2 z-20">
+              <p class="text-xs font-bold text-ink">Board-Certified</p>
+              <p class="text-xs text-gray-400">Physician · MD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up delay-2">
+        <p class="section-tag">Meet Your Provider</p>
+        <div class="teal-divider"></div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-ink tracking-tight mb-6 leading-tight">Dr. Sofia Reyes —<br><em>a doctor you'll<br>actually love.</em></h2>
+        <p class="text-gray-500 leading-relaxed mb-4">With over 8 years of aesthetic medicine experience, Dr. Reyes combines clinical precision with a deeply personal approach. She listens first, treats second.</p>
+        <p class="text-gray-500 leading-relaxed mb-8">Every injectable at Cary Glow is performed personally by Dr. Reyes — never delegated. Your safety and results are always the priority.</p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="surface-elevated p-4">
+            <p class="font-serif text-3xl text-teal font-semibold">8+</p>
+            <p class="text-xs text-gray-500 mt-0.5 uppercase tracking-wide">Years in Aesthetics</p>
+          </div>
+          <div class="surface-elevated p-4">
+            <p class="font-serif text-3xl text-teal font-semibold">200+</p>
+            <p class="text-xs text-gray-500 mt-0.5 uppercase tracking-wide">Treatments Performed</p>
+          </div>
+        </div>
+        <a href="about.html" class="btn-outline">Meet Dr. Reyes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- HOW IT WORKS -->
+<section class="bg-cream py-28 sm:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="text-center mb-16 fade-up">
+      <p class="section-tag">The Process</p>
+      <div class="teal-divider mx-auto"></div>
+      <h2 class="font-serif text-4xl sm:text-5xl text-ink tracking-tight">Your glow journey,<br><em>simplified</em></h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-10">
+      <div class="text-center animate-on-scroll">
+        <div class="step-num">01</div>
+        <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 class="font-serif text-xl text-ink mb-2">Book Your Consult</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Free 15-minute consultation, in-person or virtual. No pressure, just a real conversation about your goals.</p>
+      </div>
+      <div class="text-center animate-on-scroll">
+        <div class="step-num">02</div>
+        <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3 class="font-serif text-xl text-ink mb-2">Get Your Plan</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Dr. Reyes builds a personalized treatment plan based on your goals, timeline, and budget. No cookie-cutter approach.</p>
+      </div>
+      <div class="text-center animate-on-scroll">
+        <div class="step-num">03</div>
+        <div class="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="1.75" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 5.8L12 17.77l-6.18 3.25L7 15.67 2 10.8h6.91z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl text-ink mb-2">Achieve Your Glow</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Walk out glowing — literally. Noticeable results with ongoing support from our team every step of the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- TESTIMONIALS -->
+<section class="bg-white py-28 sm:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="text-center mb-16 fade-up">
+      <p class="section-tag">Client Love</p>
+      <div class="teal-divider mx-auto"></div>
+      <h2 class="font-serif text-4xl sm:text-5xl text-ink tracking-tight">Real results, real people</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="luxury-card p-8 animate-on-scroll">
+        <div class="flex gap-0.5 mb-5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <blockquote class="font-serif italic text-ink text-lg leading-relaxed mb-6">"I was nervous about Botox but Dr. Reyes made me feel so at ease. The results look completely natural — my friends thought I just looked rested."</blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-teal/15 flex items-center justify-center text-teal font-semibold text-sm">JM</div>
+          <div><p class="text-sm font-semibold text-ink">Jessica M.</p><p class="text-xs text-gray-400">Cary, NC · Botox Client</p></div>
+        </div>
+      </div>
+      <div class="luxury-card p-8 animate-on-scroll">
+        <div class="flex gap-0.5 mb-5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <blockquote class="font-serif italic text-ink text-lg leading-relaxed mb-6">"The HydraFacial was the best facial I've ever had. My skin was glowing for weeks afterward. Already booked my next appointment."</blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-teal/15 flex items-center justify-center text-teal font-semibold text-sm">SR</div>
+          <div><p class="text-sm font-semibold text-ink">Sarah R.</p><p class="text-xs text-gray-400">Apex, NC · HydraFacial Client</p></div>
+        </div>
+      </div>
+      <div class="luxury-card p-8 animate-on-scroll">
+        <div class="flex gap-0.5 mb-5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#C9A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <blockquote class="font-serif italic text-ink text-lg leading-relaxed mb-6">"Dr. Reyes is unlike any other provider I've seen. She's honest, thorough, and my lip filler results are exactly what I asked for — not overdone."</blockquote>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-teal/15 flex items-center justify-center text-teal font-semibold text-sm">KL</div>
+          <div><p class="text-sm font-semibold text-ink">Kim L.</p><p class="text-xs text-gray-400">Morrisville, NC · Filler Client</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- SECTION SEPARATOR -->
+<hr class="section-sep">
+
+<!-- CTA BANNER -->
+<section class="bg-teal py-24 sm:py-28">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center fade-up">
+    <p class="text-white/60 text-xs font-semibold tracking-widest uppercase mb-4">Take the First Step</p>
+    <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight mb-4 tracking-tight">Ready to start your<br><em>glow journey?</em></h2>
+    <p class="text-white/75 text-lg mb-10">Book your free 15-minute consultation — in person or virtual. No commitment required.</p>
+    <a href="contact.html" class="btn-white">Schedule Your Free Consult</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="logo-mark mb-0.5">Cary Glow</div>
+        <div class="logo-line mb-4"></div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Luxury med spa in Cary, NC. Medical-grade treatments by Dr. Sofia Reyes, MD.</p>
+        <a href="https://instagram.com/caryglow.medspa" target="_blank" rel="noopener noreferrer" aria-label="Follow Cary Glow Med Spa on Instagram" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-teal transition-colors">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @caryglow.medspa
+        </a>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest uppercase text-gray-300 mb-4">Services</h4>
+        <ul class="space-y-2">
+          <li><a href="services.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Botox & Dysport</a></li>
+          <li><a href="services.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Lip Filler</a></li>
+          <li><a href="services.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Cheek & Facial Filler</a></li>
+          <li><a href="services.html" class="text-gray-400 text-sm hover:text-teal transition-colors">HydraFacial</a></li>
+          <li><a href="services.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Microneedling</a></li>
+          <li><a href="services.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Laser Hair Removal</a></li>
+          <li><a href="services.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Chemical Peel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest uppercase text-gray-300 mb-4">Navigate</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="text-gray-400 text-sm hover:text-teal transition-colors">About Dr. Reyes</a></li>
+          <li><a href="faq.html" class="text-gray-400 text-sm hover:text-teal transition-colors">FAQs</a></li>
+          <li><a href="contact.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Book Appointment</a></li>
+          <li><a href="contact.html" class="text-gray-400 text-sm hover:text-teal transition-colors">Contact Us</a></li>
+          <li><a href="https://g.page/r/FAKEREVIEWLINK/review" target="_blank" rel="noopener noreferrer" class="text-gray-400 text-sm hover:text-teal transition-colors">Leave a Review</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest uppercase text-gray-300 mb-4">Contact</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2.5">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="2" stroke-linecap="round" class="mt-0.5 flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="text-gray-400 text-sm">1200 SE Maynard Rd, Suite 104<br>Cary, NC 27511</span>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="2" stroke-linecap="round" class="flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a2 2 0 0 1 1.99-2.16h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86"/></svg>
+            <a href="tel:9195550147" class="text-gray-400 text-sm hover:text-teal transition-colors">(919) 555-0147</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A96B" stroke-width="2" stroke-linecap="round" class="flex-shrink-0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:hello@caryglow.com" class="text-gray-400 text-sm hover:text-teal transition-colors">hello@caryglow.com</a>
+          </li>
+        </ul>
+        <div class="mt-4 pt-4 border-t border-white/10">
+          <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-2">Hours</p>
+          <p class="text-gray-400 text-xs">Mon–Fri: 9:00 AM – 6:00 PM</p>
+          <p class="text-gray-400 text-xs">Saturday: 10:00 AM – 4:00 PM</p>
+          <p class="text-gray-400 text-xs">Sunday: Closed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-gray-500 text-xs">© 2025 Cary Glow Med Spa. All rights reserved.</p>
+      <p class="text-gray-500 text-xs">1200 SE Maynard Rd, Suite 104, Cary, NC 27511</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('nav-scrolled', window.scrollY > 20));
+
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+</script>
+<script src="js/animations.js"></script>
+</body>
+</html>
